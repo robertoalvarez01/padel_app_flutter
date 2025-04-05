@@ -11,11 +11,11 @@ class SkeletonPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final skeletonProvider = context.read<SkeletonProvider>();
+    final skeletonProvider = context.watch<SkeletonProvider>();
 
     return SkeletonScaffold(
       bottomNavigationBar: const SkeletonNavigationBar(),
-      body: skeletonProvider.getPage,
+      body: skeletonProvider.getSkeletonPage,
     );
   }
 }

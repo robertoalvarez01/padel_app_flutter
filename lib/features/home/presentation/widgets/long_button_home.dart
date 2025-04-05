@@ -17,7 +17,7 @@ class LongButtonHome extends StatelessWidget {
     return Container(
       width: size.width * 9,
       height: size.width * .15,
-      padding: EdgeInsets.symmetric(horizontal: size.width * .025),
+      padding: EdgeInsets.symmetric(horizontal: size.width * .05),
       decoration: BoxDecoration(
         color: theme.colorScheme.primaryContainer,
         borderRadius: BorderRadius.circular(15),

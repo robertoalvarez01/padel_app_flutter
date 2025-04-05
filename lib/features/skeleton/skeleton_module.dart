@@ -8,5 +8,5 @@ final sl = GetIt.instance;
 Future<void> initSkeletonModule() async {
   dev.log("initSkeletonModule");
   //SkeletonProvider
-  sl.registerLazySingleton<SkeletonProvider>(() => SkeletonProvider(currentPage: 0));
+  sl.registerLazySingleton<SkeletonProvider>(() => SkeletonProvider());
 }

@@ -1,25 +1,25 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:padel_app/features/home/presentation/pages/home_page.dart';
 
 class SkeletonProvider extends ChangeNotifier {
-  int currentPage;
+  int _currentPage = 0;
+  int get currentPage => _currentPage;
+  set currentPage(int newCurrentPage){
+    _currentPage = newCurrentPage;
+    notifyListeners();
+  }
 
-  SkeletonProvider({
-    required this.currentPage
-  });
+  SkeletonProvider();
 
-  final pagesList = <Widget>[
-    HomePage(),
+  static final pagesList = <Widget>[
+    const HomePage(),
     Container(color: Colors.green,),
     Container(color: Colors.purple,),
     Container(color: Colors.orange,),
     // const ProfilePage(),
   ];
 
-  get getPage => pagesList[currentPage];
-
-  void goToPage(int newPage) async {
-    currentPage = newPage;
-    notifyListeners();
-  }
+  Widget get getSkeletonPage => pagesList[currentPage];
 }

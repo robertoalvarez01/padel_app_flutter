@@ -15,7 +15,7 @@ class SmallButtonHome extends StatelessWidget {
 
     final t = Provider.of<TranslationProvider>(context);
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: size.width * .025),
+      padding: EdgeInsets.symmetric(horizontal: size.width * .05),
       width: size.width * .85 / 2,
       height: size.width * .5 / 2 - size.width * .025,
       decoration: BoxDecoration(
