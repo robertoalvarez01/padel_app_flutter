@@ -13,7 +13,6 @@ final sl = GetIt.instance;
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await initDependencies();
-  await Future.delayed(Duration(milliseconds: 2500));
   runApp(const MyApp());
 }
 
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Padel App',
-        theme: appTheme(context),
+        theme: darkAppTheme(context),
         routes: appRoutes,
         initialRoute: AppRoutes.initialRoute,
         debugShowCheckedModeBanner: false,
