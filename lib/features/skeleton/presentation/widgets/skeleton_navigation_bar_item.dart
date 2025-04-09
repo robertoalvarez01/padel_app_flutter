@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:padel_app/features/skeleton/presentation/providers/skeleton_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:padel_app/features/skeleton/presentation/providers/skeleton_providers.dart';
 
-class SkeletonNavigationBarItem extends StatelessWidget {
+class SkeletonNavigationBarItem extends ConsumerWidget {
   const SkeletonNavigationBarItem(
       {super.key,
       required this.index,
@@ -15,13 +15,15 @@ class SkeletonNavigationBarItem extends StatelessWidget {
   final String itemText;
 
   @override
-  Widget build(BuildContext context) {
-    final controller = Provider.of<SkeletonProvider>(context);
+  Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
     final theme = Theme.of(context);
+
+    final currentPage = ref.watch(skeletonPageIndexProvider);
+
     return GestureDetector(
-      onTap: () => controller.currentPage != index
-          ? controller.currentPage = index
+      onTap: () => currentPage != index
+          ? ref.read(skeletonPageIndexProvider.notifier).setPageIndex(index)
           : null,
       child: SizedBox(
         child: Column(
@@ -30,7 +32,7 @@ class SkeletonNavigationBarItem extends StatelessWidget {
           children: [
             SvgPicture.asset(
               assetPath,
-              colorFilter: controller.currentPage == index
+              colorFilter: currentPage == index
                   ? ColorFilter.mode(Colors.white, BlendMode.srcATop)
                   : null,
             ),
@@ -39,8 +41,8 @@ class SkeletonNavigationBarItem extends StatelessWidget {
             ),
             Text(
               itemText,
-              style: theme.navigationBarTheme.labelTextStyle?.resolve(
-                  controller.currentPage == index ? {WidgetState.selected} : {}),
+              style: theme.navigationBarTheme.labelTextStyle
+                  ?.resolve(currentPage == index ? {WidgetState.selected} : {}),
             )
           ],
         ),

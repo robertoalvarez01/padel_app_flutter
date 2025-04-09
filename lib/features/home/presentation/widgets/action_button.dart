@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class ActionButtonHome extends StatelessWidget {
   const ActionButtonHome(
@@ -20,21 +21,31 @@ class ActionButtonHome extends StatelessWidget {
           border: Border.all(color: theme.colorScheme.onPrimaryContainer)),
       child: Row(
         children: [
-          SvgPicture.asset(
-            assetPath,
+          Skeleton.replace(
             height: size.width * .065,
             width: size.width * .065,
-            colorFilter: ColorFilter.mode(
-                theme.colorScheme.secondary, BlendMode.srcATop),
+            replacement: Bone.circle(
+              size: size.width * .065,
+            ),
+            child: SvgPicture.asset(
+              assetPath,
+              height: size.width * .065,
+              width: size.width * .065,
+              colorFilter: ColorFilter.mode(
+                  theme.colorScheme.secondary, BlendMode.srcATop),
+            ),
           ),
-          SizedBox(width: size.width * .02,),
+          SizedBox(
+            width: size.width * .02,
+          ),
           SizedBox(
             width: size.width * .26,
             child: Text(
               actionText,
               maxLines: 2,
-              style: theme.textTheme.labelMedium
-                  ?.copyWith(fontWeight: FontWeight.bold,),
+              style: theme.textTheme.labelMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
             ),
           )
         ],

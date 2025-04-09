@@ -15,9 +15,14 @@ ThemeData darkAppTheme(BuildContext context) {
         surface: const Color(0xFF121A21), //Light Grey
         primaryContainer: const Color(0xFF1A2633),
         secondary: const Color(0xFFFFFFFF),
-        onPrimaryContainer: const Color(0xFF334D66)
+        onPrimaryContainer: const Color(0xFF334D66),
+        tertiary: const Color(0xFF94ADC7)
       ),
       textTheme: t.textTheme.copyWith(
+        titleLarge: TextStyle(
+            fontSize: 24,
+            color: const Color(0xFFFFFFFF),
+            fontWeight: FontWeight.bold),
         headlineLarge: TextStyle(
             fontSize: 22,
             color: const Color(0xFFFFFFFF),
@@ -29,7 +34,11 @@ ThemeData darkAppTheme(BuildContext context) {
         labelMedium: TextStyle(
             fontSize: 16,
             color: const Color(0xFFFFFFFF),
-            fontWeight: FontWeight.normal),
+            fontWeight: FontWeight.w500),
+        labelSmall: TextStyle(
+            fontSize: 14,
+            color: const Color(0xFFFFFFFF),
+            fontWeight: FontWeight.w500),
       ),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: const Color(0xFF243647),
