@@ -2,12 +2,12 @@ import 'dart:ui';
 import '../repositories/translation_repository.dart';
 
 class ChangeLocaleUseCase {
-  final TranslationRepository translationService;
+  final TranslationRepository translationRepository;
 
-  ChangeLocaleUseCase(this.translationService);
+  ChangeLocaleUseCase(this.translationRepository);
 
   Future<bool> call(Locale locale) async {
-    await translationService.loadLocale(locale);
+    await translationRepository.loadLocale(locale);
     return true;
   }
 }

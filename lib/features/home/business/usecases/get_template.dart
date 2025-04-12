@@ -1,4 +1,5 @@
-import 'package:dartz/dartz.dart';
+
+import 'package:fpdart/fpdart.dart';
 
 import '../../../../../core/errors/failure.dart';
 import '../../../../../core/params/params.dart';
