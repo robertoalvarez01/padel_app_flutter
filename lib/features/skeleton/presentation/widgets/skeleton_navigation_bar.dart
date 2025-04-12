@@ -25,7 +25,7 @@ class SkeletonNavigationBar extends ConsumerWidget {
         SkeletonNavigationBarItem(
           index: 2,
           assetPath: 'assets/icons/booking.svg',
-          itemText: t.t('booking'),
+          itemText: t.t('bookings'),
         ),
         SkeletonNavigationBarItem(
           index: 3,

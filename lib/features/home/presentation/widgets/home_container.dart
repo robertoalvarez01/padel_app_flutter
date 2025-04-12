@@ -15,7 +15,7 @@ class HomePageContainer extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Skeletonizer(
-        enabled: true,
+        enabled: false,
         child: SizedBox(
           width: size.width,
           child: Column(
